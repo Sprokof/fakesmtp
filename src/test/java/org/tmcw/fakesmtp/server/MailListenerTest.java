@@ -6,9 +6,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.mail.internet.MimeMessage;
-import static org.junit.Assert.*;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -30,7 +32,7 @@ public class MailListenerTest {
     }
 
     @Test
-    public void testAcceptTrue() {
+    void testAcceptTrue() {
         final String from = "john@selfhosted.org";
         final String recipient = "frank@startmail.com";
 
@@ -42,7 +44,7 @@ public class MailListenerTest {
     }
 
     @Test
-    public void testAcceptFalse() {
+    void testAcceptFalse() {
         final String from = "john@selfhosted.org";
         final String recipient = "frank@endmail.com";
 
@@ -54,7 +56,7 @@ public class MailListenerTest {
     }
 
     @Test
-    public void testDeliver() throws MailHandlerException {
+    void testDeliver() throws MailHandlerException {
         final String from = "sender@localhost";
         final String recipient = "receiver@localhost";
         final String rawMessage = "hello";

@@ -13,15 +13,17 @@ import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.tmcw.fakesmtp.spi.MailHandler;
 import org.tmcw.fakesmtp.spi.MailHandlerException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MailListenerIT {
 
     @Test
-    public void testDeliver() throws MessagingException, IOException, MessagingException {
+    void testDeliver() throws MessagingException, IOException, MessagingException {
         final String from = "jones@myhost.org";
         final String recipient = "hightower@yourhost.net";
         final Path exampleMailPath = Paths.get("src/test/resources/example-mail.eml");

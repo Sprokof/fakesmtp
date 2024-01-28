@@ -18,8 +18,9 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public final class SendEmailsST {
 
@@ -28,7 +29,7 @@ public final class SendEmailsST {
     public static final Path OUTPUT_PATH = Paths.get(System.getProperty("output.path", "output"));
 
     @Test
-    public void sendSimpleTestEmail() throws Exception {
+    void sendSimpleTestEmail() throws Exception {
         final Email email = simpleEmail();
         email.send();
 
@@ -39,7 +40,7 @@ public final class SendEmailsST {
     }
 
     @Test
-    public void sendEmailWithAttachment() throws Exception {
+    void sendEmailWithAttachment() throws Exception {
         // Create the attachment
         final EmailAttachment attachment = new EmailAttachment();
         attachment.setPath("src/main/resources/icon.gif");
@@ -75,7 +76,7 @@ public final class SendEmailsST {
     }
 
     @Test
-    public void sendHTMLFormattedEmail() throws Exception {
+    void sendHTMLFormattedEmail() throws Exception {
         // Create the email message
         final HtmlEmail email = new HtmlEmail();
         email.setHostName(SMTP_HOST);
@@ -104,7 +105,7 @@ public final class SendEmailsST {
     }
 
     @Test
-    public void sendEmailWithBase64Subject() throws Exception {
+    void sendEmailWithBase64Subject() throws Exception {
         final Email email = simpleEmail();
         // 🚅 Boston railway deals - while they last!
         email.setSubject("=?UTF-8?B?8J+ahSBCb3N0b24gcmFpbHdheSBkZWFscyAtIHdoaWxlIHRoZXkgbGFzdCE==?=");
@@ -117,7 +118,7 @@ public final class SendEmailsST {
     }
 
     @Test
-    public void sendEmailToManyRecipientsWithTwoHeaders() throws Exception {
+    void sendEmailToManyRecipientsWithTwoHeaders() throws Exception {
         final Email email = simpleEmail();
         email.addTo("test2@example.com");
         email.addHeader("Foo", "Bar");
@@ -140,7 +141,7 @@ public final class SendEmailsST {
     }
 
     @Test
-    public void sendEmailWithDots() throws Exception {
+    void sendEmailWithDots() throws Exception {
         final Email email = simpleEmail();
         email.setDebug(true);
         email.setMsg(".\n.");

@@ -5,17 +5,19 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import static org.junit.Assert.*;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.subethamail.smtp.server.SMTPServer;
 import org.tmcw.fakesmtp.spi.MailHandler;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SMTPServerBuilderTest {
 
     final SMTPServerBuilder instance = new SMTPServerBuilder();
 
     @Test
-    public void testBuild() throws UnknownHostException {
+    void testBuild() throws UnknownHostException {
         final List<MailHandler> mailHandlerList = Collections.emptyList();
         final List<String> relayDomains = Arrays.asList("evil.com");
         final int port = 345;

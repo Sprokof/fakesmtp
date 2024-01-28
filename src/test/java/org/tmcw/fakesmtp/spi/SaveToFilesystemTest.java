@@ -9,15 +9,17 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.mail.internet.MimeMessage;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.tmcw.fakesmtp.FolderHelper;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SaveToFilesystemTest {
 
     @Test
-    public void testHandle() throws Exception {
+    void testHandle() throws Exception {
         final String from = "user@localhost";
         final String recipient = "admin@localhost";
         final String rawMessage = "headers+bodü";

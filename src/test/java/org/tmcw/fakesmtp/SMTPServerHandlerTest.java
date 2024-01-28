@@ -1,8 +1,9 @@
 package org.tmcw.fakesmtp;
 
 import java.net.UnknownHostException;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import static org.mockito.Mockito.verify;
 import org.mockito.MockitoAnnotations;
@@ -13,13 +14,13 @@ public class SMTPServerHandlerTest {
     @Mock
     SMTPServer smtpServer;
 
-    @Before
+    @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testStartServer() throws UnknownHostException {
+    void testStartServer() throws UnknownHostException {
         final SMTPServerHandler instance = new SMTPServerHandler(smtpServer);
         instance.startServer();
 
@@ -27,7 +28,7 @@ public class SMTPServerHandlerTest {
     }
 
     @Test
-    public void testStopServer() {
+    void testStopServer() {
         final SMTPServerHandler instance = new SMTPServerHandler(smtpServer);
         instance.stopServer();
 
